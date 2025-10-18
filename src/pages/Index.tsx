@@ -52,7 +52,17 @@ const Index = () => {
 
   const goals = [
     { team: 'lokomotiv', player: 'Батраков', minute: "17'" },
-    { team: 'lokomotiv', player: 'Воробьёв', minute: "45+3'" }
+    { team: 'lokomotiv', player: 'Воробьёв', minute: "45+3'" },
+    { team: 'lokomotiv', player: 'Комличенко', minute: "88'" }
+  ];
+
+  const substitutions = [
+    { 
+      team: 'lokomotiv', 
+      minute: "70'", 
+      playerIn: { number: 11, name: 'Комличенко' },
+      playerOut: { number: 93, name: 'Карпукас' }
+    }
   ];
 
   return (
@@ -105,7 +115,7 @@ const Index = () => {
 
                   <div className="text-center space-y-3">
                     <div className="text-6xl md:text-7xl font-bold">
-                      <span className="text-primary">2</span>
+                      <span className="text-primary">3</span>
                       <span className="text-muted-foreground mx-2">:</span>
                       <span className="text-secondary">0</span>
                     </div>
@@ -131,21 +141,50 @@ const Index = () => {
                   </div>
                 </div>
 
-                <div className="mt-6 pt-6 border-t border-border">
-                  <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
-                    <Icon name="Target" size={20} />
-                    Голы
-                  </h3>
-                  <div className="space-y-2">
-                    {goals.map((goal, index) => (
-                      <div key={index} className="flex items-center gap-3 text-sm">
-                        <Badge variant="outline" className="border-primary text-primary">
-                          {goal.minute}
-                        </Badge>
-                        <span className="font-medium">{goal.player}</span>
-                        <span className="text-muted-foreground">(Локомотив)</span>
-                      </div>
-                    ))}
+                <div className="mt-6 pt-6 border-t border-border space-y-6">
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                      <Icon name="Target" size={20} />
+                      Голы
+                    </h3>
+                    <div className="space-y-2">
+                      {goals.map((goal, index) => (
+                        <div key={index} className="flex items-center gap-3 text-sm">
+                          <Badge variant="outline" className="border-primary text-primary">
+                            {goal.minute}
+                          </Badge>
+                          <span className="font-medium">{goal.player}</span>
+                          <span className="text-muted-foreground">(Локомотив)</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h3 className="text-lg font-semibold mb-3 flex items-center gap-2">
+                      <Icon name="ArrowRightLeft" size={20} />
+                      Замены
+                    </h3>
+                    <div className="space-y-2">
+                      {substitutions.map((sub, index) => (
+                        <div key={index} className="flex items-center gap-3 text-sm">
+                          <Badge variant="outline" className="border-accent text-accent">
+                            {sub.minute}
+                          </Badge>
+                          <div className="flex items-center gap-2">
+                            <span className="text-green-500 font-medium flex items-center gap-1">
+                              <Icon name="ArrowUp" size={14} />
+                              {sub.playerIn.name}
+                            </span>
+                            <Icon name="ArrowLeftRight" size={14} className="text-muted-foreground" />
+                            <span className="text-red-500 font-medium flex items-center gap-1">
+                              <Icon name="ArrowDown" size={14} />
+                              {sub.playerOut.name}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
