@@ -93,4 +93,9 @@
       opacity: 0.5;
     }
   }
+
+  .druk-wide {
+    font-family: "Druk Wide", "Oswald", sans-serif;
+    font-weight: 700;
+  }
 }

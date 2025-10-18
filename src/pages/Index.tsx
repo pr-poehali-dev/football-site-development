@@ -102,8 +102,10 @@ const Index = () => {
             <Card className="bg-gradient-to-br from-card to-card/50 border-2 border-primary/20 overflow-hidden">
               <div className="p-6 md:p-8">
                 <div className="flex items-center gap-2 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-primary animate-pulse" />
-                  <Badge variant="destructive" className="bg-primary">LIVE</Badge>
+                  <Badge variant="default" className="bg-accent text-accent-foreground">МАТЧ ОКОНЧЕН</Badge>
+                  <span className="text-muted-foreground text-sm">•</span>
+                  <span className="text-accent font-bold">Победа «Локо»</span>
+                  <span className="text-muted-foreground text-sm">•</span>
                   <span className="text-muted-foreground text-sm">Сезон 2025/26</span>
                 </div>
 
@@ -114,7 +116,7 @@ const Index = () => {
                   </div>
 
                   <div className="text-center space-y-3">
-                    <div className="text-6xl md:text-7xl font-bold">
+                    <div className="text-6xl md:text-7xl font-bold druk-wide">
                       <span className="text-primary">3</span>
                       <span className="text-muted-foreground mx-2">:</span>
                       <span className="text-secondary">0</span>
